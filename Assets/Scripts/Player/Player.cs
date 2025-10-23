@@ -1,3 +1,4 @@
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -5,6 +6,9 @@ public class Player : MonoBehaviour
     Input input;
     [SerializeField] PlayerMovement movement;
     Vector2 movementInput;
+
+    public AnimatorController animController;
+
     void Awake()
     {
         input = new Input();
