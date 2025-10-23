@@ -3,7 +3,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     Input input;
-    [SerializeField] PlayerMovement movement;
+    public PlayerMovement movement;
     Vector2 movementInput;
     void Awake()
     {

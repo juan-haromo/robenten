@@ -12,8 +12,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Speed")]
     
     [SerializeField] float rotationSpeed = 5.0f;
-    [SerializeField] float acceleration = 5.0f;
-    [SerializeField] float maxMoveSpeed = 5.0f;
+    public float acceleration = 5.0f;
+    public float maxMoveSpeed = 5.0f;
 
     Vector3 viewDirection;
     Vector3 inputDirection;
