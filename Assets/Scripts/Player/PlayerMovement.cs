@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform orientation;
     [SerializeField] Transform player;
     [SerializeField] Transform playerObj;
+    public Transform proyectileSpawnpoint;
     [SerializeField] Rigidbody rb;
 
     [Header("Speed")]
@@ -15,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float acceleration = 5.0f;
     [SerializeField] float maxMoveSpeed = 5.0f;
 
-    Vector3 viewDirection;
+    public Vector3 viewDirection;
     Vector3 inputDirection;
     bool wasPressingKeys = false;
 
