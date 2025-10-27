@@ -1,39 +1,42 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyIA1 : MonoBehaviour
+public class EnemyIA2 : MonoBehaviour
 {
     [Header("Configuración de Patrulla")]
     public float patrolRadius = 20f;
     public float patrolWaitTime = 3f;
 
     [Header("Configuración de Detección")]
-    public float detectionRadius = 10f;
-    public float loseRadius = 15f;
+    public float detectionRadius = 15f;
+    public float loseRadius = 20f;
     public float fieldOfView = 120f;
     public string playerTag = "Player";
 
-    [Header("Distancia mínima con el jugador")]
-    public float stopDistance = 2f; // Si está más cerca que esto, se detiene
+    [Header("Ataque a distancia")]
+    public float shootDistance = 8f;          // Distancia desde la que dispara
+    public float fireRate = 1f;               // Disparos por segundo
+    public GameObject projectilePrefab;       // Prefab del proyectil
+    public Transform shootPoint;              // Punto desde donde se dispara
 
     private Transform player;
     private NavMeshAgent agent;
     private Vector3 patrolDestination;
     private float waitTimer;
     private bool isChasing = false;
+    private float shootTimer = 0f;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
 
-        // Buscar jugador por tag
+        // Buscar al jugador por tag
         GameObject playerObj = GameObject.FindGameObjectWithTag(playerTag);
         if (playerObj != null)
             player = playerObj.transform;
         else
-            Debug.LogWarning("⚠️ No se encontró ningún objeto con el tag '" + playerTag + "' en la escena.");
+            Debug.LogWarning(" No se encontró ningún objeto con el tag '" + playerTag + "' en la escena.");
 
-        // Elegir el primer destino aleatorio
         SetRandomDestination();
     }
 
@@ -49,45 +52,45 @@ public class EnemyIA1 : MonoBehaviour
         {
             isChasing = true;
 
-            // Si está muy cerca, detenerse
-            if (distanceToPlayer <= stopDistance)
+            // Si está fuera del rango de disparo → acercarse
+            if (distanceToPlayer > shootDistance)
             {
-                agent.isStopped = true;
-                RotateTowards(player.position); // Solo mirar al jugador
+                agent.isStopped = false;
+                agent.SetDestination(player.position);
             }
             else
             {
-                agent.isStopped = false;
-                agent.SetDestination(player.position); // Perseguir
+                // Mantener distancia y disparar
+                agent.isStopped = true;
                 RotateTowards(player.position);
+                Shoot();
             }
         }
-        // Si lo estaba persiguiendo pero lo pierde de vista
         else if (isChasing && distanceToPlayer > loseRadius)
         {
+            // Si lo pierde de vista, vuelve a patrullar
             isChasing = false;
             agent.isStopped = false;
             SetRandomDestination();
         }
 
-        // Si no está persiguiendo, sigue patrullando
+        // Si no persigue, patrulla
         if (!isChasing)
             Patrol();
     }
 
     bool CanSeePlayer(float distanceToPlayer)
     {
-        // Primero, comprobar si el jugador está dentro del radio general
+        // Verificar distancia
         if (distanceToPlayer > detectionRadius)
             return false;
 
-        // Luego comprobar si el jugador está dentro del ángulo de visión
+        // Verificar ángulo de visión
         Vector3 dirToPlayer = (player.position - transform.position).normalized;
         float angle = Vector3.Angle(transform.forward, dirToPlayer);
 
         if (angle < fieldOfView / 2f)
         {
-            // Comprobar si hay línea de visión
             if (Physics.Raycast(transform.position + Vector3.up, dirToPlayer, out RaycastHit hit, detectionRadius))
             {
                 if (hit.transform.CompareTag(playerTag))
@@ -95,7 +98,7 @@ public class EnemyIA1 : MonoBehaviour
             }
         }
 
-        // Si está muy cerca aunque esté fuera del ángulo, también detectarlo
+        // Si está muy cerca, detectarlo igual
         if (distanceToPlayer < detectionRadius * 0.5f)
             return true;
 
@@ -131,12 +134,38 @@ public class EnemyIA1 : MonoBehaviour
     void RotateTowards(Vector3 targetPosition)
     {
         Vector3 direction = (targetPosition - transform.position).normalized;
-        direction.y = 0; // Evitar rotación vertical
+        direction.y = 0;
 
         if (direction.magnitude > 0.1f)
         {
             Quaternion lookRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
+        }
+    }
+
+    void Shoot()
+    {
+        shootTimer += Time.deltaTime;
+        if (shootTimer >= 1f / fireRate)
+        {
+            shootTimer = 0f;
+
+            if (projectilePrefab != null && shootPoint != null)
+            {
+                GameObject projectile = Instantiate(projectilePrefab, shootPoint.position, shootPoint.rotation);
+                Rigidbody rb = projectile.GetComponent<Rigidbody>();
+
+                if (rb != null)
+                {
+                    // Disparo hacia el jugador
+                    Vector3 dir = (player.position - shootPoint.position).normalized;
+                    rb.linearVelocity = dir * 15f; // Velocidad del proyectil
+                }
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ Falta asignar el prefab del proyectil o el punto de disparo.");
+            }
         }
     }
 
@@ -152,6 +181,6 @@ public class EnemyIA1 : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, loseRadius);
 
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, stopDistance);
+        Gizmos.DrawWireSphere(transform.position, shootDistance);
     }
 }
