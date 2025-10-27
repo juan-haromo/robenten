@@ -405,17 +405,37 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
---- !u!114 &429033868 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2876376110367607711, guid: ce9e98a6b35927c458e9d0ff385bee9a, type: 3}
-  m_PrefabInstance: {fileID: 8557008571092095163}
+--- !u!1 &531693548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 531693549}
+  m_Layer: 0
+  m_Name: ProyectileSpawnpoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &531693549
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531693548}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1827153121}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &743961514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1690,9 +1710,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 120523144}
-  - {fileID: 1695163727}
-  - {fileID: 1853251813}
+  - {fileID: 117809305}
+  - {fileID: 3649119}
+  - {fileID: 531693549}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1827153122
@@ -1711,6 +1731,7 @@ MonoBehaviour:
   orientation: {fileID: 3649119}
   player: {fileID: 1827153121}
   playerObj: {fileID: 1827153121}
+  proyectileSpawnpoint: {fileID: 531693549}
   rb: {fileID: 1827153124}
   combatLookAt: {fileID: 1851316883}
   rotationSpeed: 5
@@ -1718,6 +1739,7 @@ MonoBehaviour:
   currentMaxMoveSpeed: 5
   normalAcceleration: 5
   normalMaxMoveSpeed: 5
+  viewDirection: {x: 0, y: 0, z: 0}
 --- !u!114 &1827153123
 MonoBehaviour:
   m_ObjectHideFlags: 0
