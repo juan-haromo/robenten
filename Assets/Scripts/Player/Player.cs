@@ -1,13 +1,15 @@
+using System.Collections;
 using UnityEditor.Animations;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     Input input;
-    [SerializeField] PlayerMovement movement;
+    public PlayerMovement movement;
     Vector2 movementInput;
 
     public AnimatorController animController;
+    public GameObject TankUltimateBall;
 
     void Awake()
     {
@@ -35,5 +37,11 @@ public class Player : MonoBehaviour
         input.Player.Defend.performed += context => combat.defenseAbility.Activate(this);
         input.Player.Special.performed += context => combat.specialAbility.Activate(this);
         input.Player.Ultimate.performed += context => combat.ultimateAbility.Activate(this);
+    }
+
+    public IEnumerator UltimateTimeActive(float time)
+    {
+        yield return new WaitForSeconds(time);
+        combat.ultimateAbility.ExitUltimate(this);
     }
 }
