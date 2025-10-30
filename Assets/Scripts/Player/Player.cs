@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     Input input;
     public PlayerMovement movement;
+    public PlayerHealthSystem health;
     Vector2 movementInput;
 
     public AnimatorController animController;
@@ -43,5 +44,11 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         combat.ultimateAbility.ExitUltimate(this);
+    }
+
+    public IEnumerator ActiveAbility(float time, PlayerAbility ability)
+    {
+        yield return new WaitForSeconds(time);
+        ability.Deactivate(this);
     }
 }

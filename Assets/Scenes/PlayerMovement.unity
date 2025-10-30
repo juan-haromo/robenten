@@ -1116,6 +1116,7 @@ GameObject:
   - component: {fileID: 1827153122}
   - component: {fileID: 1827153124}
   - component: {fileID: 1827153125}
+  - component: {fileID: 1827153126}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1252,6 +1253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   movement: {fileID: 1827153122}
+  health: {fileID: 1827153126}
   animController: {fileID: 9100000, guid: d9bae439cca51ce44ac63d6c6e282c4c, type: 2}
   TankUltimateBall: {fileID: 120523143}
   combat: {fileID: 1827153125}
@@ -1298,6 +1300,21 @@ MonoBehaviour:
   defenseAbility: {fileID: 11400000, guid: b022a3a96918dd647a0ac27a06579b0d, type: 2}
   specialAbility: {fileID: 11400000, guid: d3012100585f6a143b5d6a25e88206c2, type: 2}
   ultimateAbility: {fileID: 11400000, guid: 5c4e26f21b6f1ba4d864c72f2c794314, type: 2}
+--- !u!114 &1827153126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1827153117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bad103e0e279b4a872e197b2cbbae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHealth: 100
+  maxHealth: 100
+  damageMultiplier: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

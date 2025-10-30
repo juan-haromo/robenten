@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "TankUltimate", menuName = "Player/Abilities/Tank/Ultimate")]
-public class TankUltimate : PlayerAbilityUltimate
+public class TankUltimate : PlayerAbility
 {
     public override void Activate(Player player)
     {
@@ -14,10 +14,10 @@ public class TankUltimate : PlayerAbilityUltimate
         player.movement.currentAcceleration = player.movement.normalAcceleration * 1.5f;
         player.movement.currentMaxMoveSpeed = player.movement.normalMaxMoveSpeed * 2f;
 
-        player.StartCoroutine(player.UltimateTimeActive(ultimateTime));
+        player.StartCoroutine(player.ActiveAbility(CooldownTime, this));
     }
 
-    public override void ExitUltimate(Player player)
+    public override void Deactivate(Player player)
     {
         player.movement.currentAcceleration = player.movement.normalAcceleration;
         player.movement.currentMaxMoveSpeed = player.movement.normalMaxMoveSpeed;
