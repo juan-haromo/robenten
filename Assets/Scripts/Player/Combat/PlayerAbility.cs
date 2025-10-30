@@ -6,4 +6,6 @@ public abstract class PlayerAbility : ScriptableObject
     public float CooldownTime { get => cooldownTime; }
 
     public abstract void Activate(Player player);
+
+    public virtual void Deactivate(Player player) { }
 }

@@ -5,14 +5,18 @@ public class Player : MonoBehaviour
     Input input;
     [SerializeField] PlayerMovement movement;
     Vector2 movementInput;
+    public bool canUseAbilities;
+
     void Awake()
     {
         input = new Input();
-        input.Player.Enable();
         SetUpCombat();
+        input.Player.Enable();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        canUseAbilities = true;
     }
 
     void Update()
@@ -27,7 +31,8 @@ public class Player : MonoBehaviour
     [SerializeField] PlayerCombat combat;
     void SetUpCombat()
     {
-        input.Player.Attack.performed += context => combat.attackAbility.Activate(this);
+        input.Player.Attack.started += context => combat.attackAbility.Activate(this);
+        input.Player.Attack.canceled += context => combat.attackAbility.Deactivate(this);
         input.Player.Defend.performed += context => combat.defenseAbility.Activate(this);
         input.Player.Special.performed += context => combat.specialAbility.Activate(this);
         input.Player.Ultimate.performed += context => combat.ultimateAbility.Activate(this);
