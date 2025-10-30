@@ -147,7 +147,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1851316883}
   m_Father: {fileID: 1827153121}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &117809304
@@ -702,7 +703,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799677220}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21782933, y: 1.4738727e-32, z: -3.2895185e-33, w: 0.9759869}
+  m_LocalRotation: {x: 0.10016717, y: 0.12525594, z: -0.012712132, w: 0.9869731}
   m_LocalPosition: {x: 0, y: 2.8210368, z: -3.8763711}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1244,7 +1245,7 @@ GameObject:
   - component: {fileID: 1545765431}
   - component: {fileID: 1545765437}
   m_Layer: 0
-  m_Name: ThirdPersonCamera
+  m_Name: CombatCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1432,8 +1433,8 @@ MonoBehaviour:
   m_LegacyPriority: 0
   Target:
     TrackingTarget: {fileID: 1827153121}
-    LookAtTarget: {fileID: 0}
-    CustomLookAtTarget: 0
+    LookAtTarget: {fileID: 1851316883}
+    CustomLookAtTarget: 1
   Lens:
     FieldOfView: 60.000004
     OrthographicSize: 5
@@ -1462,7 +1463,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545765430}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21782932, y: 1.3733688e-32, z: 1.213561e-33, w: 0.9759869}
+  m_LocalRotation: {x: 0.10016716, y: 0.12525594, z: -0.012712132, w: 0.9869731}
   m_LocalPosition: {x: 0, y: 2.8210368, z: -3.8763711}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1636,11 +1637,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb2a088e51e8104a84c3fd4cec76d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  explorationCamera: {fileID: 1545765436}
+  combatCamera: {fileID: 1545765436}
   orientation: {fileID: 3649119}
   player: {fileID: 1827153121}
   playerObj: {fileID: 1827153121}
   rb: {fileID: 1827153124}
+  combatLookAt: {fileID: 1851316883}
   rotationSpeed: 5
   acceleration: 5
   maxMoveSpeed: 20
@@ -1682,7 +1684,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
 --- !u!114 &1827153125
@@ -1729,6 +1731,37 @@ MonoBehaviour:
   maxCooldown: 10
   specialChargeRate: 25
   ultimateChargeRate: 10
+--- !u!1 &1851316882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1851316883}
+  m_Layer: 0
+  m_Name: LookPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1851316883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851316882}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3649119}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

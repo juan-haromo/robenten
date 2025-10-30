@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
     void Awake()
     {
         input = new Input();
-        input.Player.Enable();
         SetUpCombat();
+        input.Player.Enable();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
