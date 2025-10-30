@@ -16,8 +16,5 @@ public abstract class PlayerAbility : ScriptableObject
 
     public abstract void Activate(Player player);
 
-    public virtual void Deactivate(Player player)
-    {
-        
-    }
+    public virtual void Deactivate(Player player) { }
 }
