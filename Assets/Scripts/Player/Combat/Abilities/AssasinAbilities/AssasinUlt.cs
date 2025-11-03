@@ -5,11 +5,10 @@ using UnityEngine;
 public class AssasinUlt : PlayerAbility
 {
     List<GameObject> HitEnemies = new List<GameObject>();
-    bool shadowTime=false;
+    public bool shadowTime=false;
     public override void Activate(Player player)
     {
         player.playerAnimator.SetTrigger("Ult");
-        player.playerAnimator.ResetTrigger("Ult");
         player.StartCoroutine(ShadowForm(player.movement));
     }
 

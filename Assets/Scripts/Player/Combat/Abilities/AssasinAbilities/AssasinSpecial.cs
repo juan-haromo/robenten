@@ -7,7 +7,7 @@ public class AssasinSpecial : PlayerAbility
     public override void Activate(Player player)
     {
         player.playerAnimator.SetTrigger("Special");
-        player.playerAnimator.ResetTrigger("Special");
+        
         player.movement.rb.AddRelativeForce(Vector3.forward*dashForce,ForceMode.Impulse);  
     }
 }

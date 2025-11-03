@@ -6,7 +6,7 @@ public class AssasinAttack : PlayerAbility
     
     public override void Activate(Player player)
     {
-        player.playerAnimator.SetTrigger("Special");
-        player.playerAnimator.ResetTrigger("Special");
+        player.playerAnimator.SetTrigger("Attack");
+        
     }
 }

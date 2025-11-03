@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: AssasinDefensive
   m_EditorClassIdentifier: 
   cooldownTime: 0
-  smokeBombPrefab: {fileID: 0}
+  smokeBombPrefab: {fileID: 3709388832594447579, guid: 1d945d8f07639ea438db5d96293329fa, type: 3}
   smokebombForce: 1
