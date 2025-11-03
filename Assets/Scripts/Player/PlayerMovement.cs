@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform combatLookAt;
 
     public Transform proyectileSpawnpoint;
-
     [Header("Speed")]
     
 

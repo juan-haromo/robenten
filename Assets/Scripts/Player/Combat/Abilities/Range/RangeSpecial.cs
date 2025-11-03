@@ -1,13 +1,11 @@
 using UnityEngine;
-using System.Collections;
 
 [CreateAssetMenu(fileName = "RangeAttack", menuName = "Player/Abilities/Range/Attack")]
-public class RangeAttack : PlayerAbility
+public class RangeSpecial : PlayerAbility
 {
     [SerializeField] private GameObject proyectilePrefab;
     [SerializeField] private float attackRange;
     [SerializeField] private LayerMask worldLayer;
-    private Coroutine rangeAttackCoroutine;
 
     public override void Activate(Player player)
     {
@@ -15,28 +13,10 @@ public class RangeAttack : PlayerAbility
         //mouseScreenPos.z = Camera.main.nearClipPlane;
         //Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Camera.);
         if (player.canUseAbilities)
-            rangeAttackCoroutine = player.StartCoroutine(OnRangeAttack(player));
+            ShootSpecialArrow(player);
     }
 
-    public override void Deactivate(Player player)
-    {
-        if (rangeAttackCoroutine != null)
-        {
-            player.StopCoroutine(rangeAttackCoroutine);
-            rangeAttackCoroutine = null;
-        }
-    }
-
-    private IEnumerator OnRangeAttack(Player player)
-    {
-        while (true)
-        {
-            ShootArrow(player);
-            yield return new WaitForSeconds(CooldownTime);
-        }
-    }
-
-    private void ShootArrow(Player player)
+    private void ShootSpecialArrow(Player player)
     {
         Vector3 shootTarget;
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));

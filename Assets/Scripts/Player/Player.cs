@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public AnimManager animManager;
 
     public GameObject TankUltimateBall, tankDefensiveExplotion;
+    public Transform proyectileSpawnpoint;
     public bool canUseAbilities;
 
     void Awake()
