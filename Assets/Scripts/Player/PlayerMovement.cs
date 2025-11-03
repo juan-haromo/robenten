@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform orientation;
     [SerializeField] Transform player;
     [SerializeField] Transform playerObj;
-    [SerializeField] Rigidbody rb;
+    public Rigidbody rb;
 
     [Header("Speed")]
     

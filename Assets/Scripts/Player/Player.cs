@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
     Input input;
     public PlayerMovement movement;
     Vector2 movementInput;
+    public Animator playerAnimator;
     void Awake()
     {
         input = new Input();

@@ -8,6 +8,8 @@ public class AssasinUlt : PlayerAbility
     bool shadowTime=false;
     public override void Activate(Player player)
     {
+        player.playerAnimator.SetTrigger("Ult");
+        player.playerAnimator.ResetTrigger("Ult");
         player.StartCoroutine(ShadowForm(player.movement));
     }
 
