@@ -582,7 +582,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799677220}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21782933, y: 1.4738727e-32, z: -3.2895185e-33, w: 0.9759869}
+  m_LocalRotation: {x: 0.06793648, y: 0.11393368, z: -0.0078095086, w: 0.9911321}
   m_LocalPosition: {x: 0, y: 2.8210368, z: -3.8763711}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -843,7 +843,7 @@ MonoBehaviour:
       Size: {x: 0.8, y: 0.8}
       Offset: {x: 0, y: 0}
   CenterOnActivate: 1
-  TargetOffset: {x: 0, y: 0, z: 0}
+  TargetOffset: {x: 3, y: 0, z: 9}
   Damping: {x: 0, y: 0}
   Lookahead:
     Enabled: 0
@@ -964,7 +964,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1545765430}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.21782932, y: 1.3733688e-32, z: 1.213561e-33, w: 0.9759869}
+  m_LocalRotation: {x: 0.06793649, y: 0.11393369, z: -0.00780951, w: 0.9911321}
   m_LocalPosition: {x: 0, y: 2.8210368, z: -3.8763711}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1143,7 +1143,6 @@ MonoBehaviour:
   orientation: {fileID: 3649119}
   player: {fileID: 1827153121}
   playerObj: {fileID: 1827153121}
-  proyectileSpawnpoint: {fileID: 531693549}
   rb: {fileID: 1827153124}
   rotationSpeed: 5
   acceleration: 5
@@ -1162,6 +1161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   movement: {fileID: 1827153122}
+  proyectileSpawnpoint: {fileID: 531693549}
+  canUseAbilities: 0
   combat: {fileID: 1827153125}
 --- !u!54 &1827153124
 Rigidbody:
@@ -1202,7 +1203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 391a91b6fe18ed3498c113ef9f9e6f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerCombat
-  attackAbility: {fileID: 11400000, guid: 2813362fec77e044f844a134853c1076, type: 2}
+  attackAbility: {fileID: 11400000, guid: 4bc8e1d4fbb2ddf428083905a9946a04, type: 2}
   defenseAbility: {fileID: 11400000, guid: b022a3a96918dd647a0ac27a06579b0d, type: 2}
   specialAbility: {fileID: 11400000, guid: d3012100585f6a143b5d6a25e88206c2, type: 2}
   ultimateAbility: {fileID: 11400000, guid: 02239d3463aa7204aa07602ff9394dcc, type: 2}

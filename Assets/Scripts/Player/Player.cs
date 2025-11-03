@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
     Input input;
     [SerializeField] PlayerMovement movement;
     Vector2 movementInput;
+    public Transform proyectileSpawnpoint;
     public bool canUseAbilities;
 
     void Awake()
