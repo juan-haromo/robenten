@@ -7,10 +7,11 @@ public class Player : MonoBehaviour
     Input input;
     public PlayerMovement movement;
     public PlayerHealthSystem health;
+    public AnimManager animManager;
+
     Vector2 movementInput;
 
-    public AnimatorController animController;
-    public GameObject TankUltimateBall;
+    public GameObject TankUltimateBall, tankDefensiveExplotion;
 
     void Awake()
     {

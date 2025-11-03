@@ -6,8 +6,17 @@ public class PlayerHealthSystem : MonoBehaviour
 
     public float damageMultiplier;
 
+    public float damageTaken = 0;
+
+    public bool absorbingDamage = false;
+
     public void TakeDamage(float damage)
     {
+        if (absorbingDamage)
+        {
+            damageTaken += damage;
+        }
+
         currentHealth -= damage * damageMultiplier;
 
         if (currentHealth <= 0)
