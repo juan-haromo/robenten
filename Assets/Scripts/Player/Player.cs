@@ -1,10 +1,12 @@
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour,IDamageable
 {
     Input input;
-    [SerializeField] PlayerMovement movement;
+    public PlayerMovement movement;
     Vector2 movementInput;
+    public Animator playerAnimator;
+    int health = 100;
     void Awake()
     {
         input = new Input();
@@ -31,5 +33,10 @@ public class Player : MonoBehaviour
         input.Player.Defend.performed += context => combat.defenseAbility.Activate(this);
         input.Player.Special.performed += context => combat.specialAbility.Activate(this);
         input.Player.Ultimate.performed += context => combat.ultimateAbility.Activate(this);
+    }
+
+    public void Damage(int damage)
+    {
+        health -= damage;
     }
 }
