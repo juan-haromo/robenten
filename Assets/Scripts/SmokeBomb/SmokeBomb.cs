@@ -17,6 +17,8 @@ public class SmokeBomb : MonoBehaviour
         if (!collision.gameObject.CompareTag("Player") && activated == false)
         { 
             activated = true;
+            gameObject.GetComponent<Rigidbody>().freezeRotation = true;
+            gameObject.GetComponent<Rigidbody>().linearVelocity = new Vector3(0,0,0);
         StartCoroutine(smokeBombActive());
         particles.transform.position = gameObject.transform.position;
         particles.SetActive(true);
@@ -28,15 +30,16 @@ public class SmokeBomb : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.TryGetComponent<IStunnable>(out IStunnable enemy))
         {
-            //aplicar Stun
+            enemy.Stun();
         }
     }
 
     IEnumerator smokeBombActive()
     {
         smokebombTrigger.enabled = true;
+        
         yield return new WaitForSeconds(3);
         Destroy(this.gameObject);
     }
