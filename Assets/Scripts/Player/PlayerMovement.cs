@@ -13,9 +13,14 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Speed")]
     
-    [SerializeField] float rotationSpeed = 5.0f;
-    public float acceleration = 5.0f;
-    public float maxMoveSpeed = 5.0f;
+
+    public float rotationSpeed = 5.0f;
+
+
+    public float currentAcceleration = 5.0f;
+    public float currentMaxMoveSpeed = 5.0f;
+    public float normalAcceleration = 5.0f;
+    public float normalMaxMoveSpeed = 5.0f;
 
     Vector3 viewDirection;
     Vector3 inputDirection;
@@ -44,15 +49,12 @@ public class PlayerMovement : MonoBehaviour
         else if (wasPressingKeys)
         {
             wasPressingKeys = false;
-            rb.linearVelocity = new Vector3(0, rb.linearVelocity.y, 0);
-        }
-
-        //Speed control
-        rb.AddForce(acceleration * 10 * inputDirection.normalized, ForceMode.Force);
+        }   
+        rb.AddForce(currentAcceleration * 10 * inputDirection.normalized, ForceMode.Force);
         Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
-        if(flatVel.magnitude > maxMoveSpeed)
+        if(flatVel.magnitude > currentMaxMoveSpeed)
         {
-            rb.linearVelocity = flatVel.normalized * maxMoveSpeed;
+            rb.linearVelocity = flatVel.normalized * currentMaxMoveSpeed;
         }
     }
 }

@@ -1,3 +1,5 @@
+using System.Collections;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class Player : MonoBehaviour,IDamageable
@@ -7,6 +9,13 @@ public class Player : MonoBehaviour,IDamageable
     Vector2 movementInput;
     public Animator playerAnimator;
     int health = 100;
+    public PlayerHealthSystem health;
+    public AnimManager animManager;
+
+    Vector2 movementInput;
+
+    public GameObject TankUltimateBall, tankDefensiveExplotion;
+
     void Awake()
     {
         input = new Input();
@@ -26,13 +35,29 @@ public class Player : MonoBehaviour,IDamageable
         movement.Move(movementInput.x, movementInput.y);
     }
 
-    [SerializeField] PlayerCombat combat;
+    public PlayerCombat combat;
     void SetUpCombat()
     {
         input.Player.Attack.performed += context => combat.attackAbility.Activate(this);
+        combat.attackAbility.Initialize(this);
         input.Player.Defend.performed += context => combat.defenseAbility.Activate(this);
+        combat.defenseAbility.Initialize(this);
         input.Player.Special.performed += context => combat.specialAbility.Activate(this);
+        combat.specialAbility.Initialize(this);
         input.Player.Ultimate.performed += context => combat.ultimateAbility.Activate(this);
+        combat.ultimateAbility.Initialize(this);
+    }
+
+    public IEnumerator UltimateTimeActive(float time)
+    {
+        yield return new WaitForSeconds(time);
+        combat.ultimateAbility.ExitUltimate(this);
+    }
+
+    public IEnumerator ActiveAbility(float time, PlayerAbility ability)
+    {
+        yield return new WaitForSeconds(time);
+        ability.Deactivate(this);
     }
 
     public void Damage(int damage)
