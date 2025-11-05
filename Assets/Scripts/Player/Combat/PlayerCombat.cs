@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour
@@ -6,4 +7,6 @@ public class PlayerCombat : MonoBehaviour
     public PlayerAbility defenseAbility;
     public PlayerAbility specialAbility;
     public PlayerAbilityUltimate ultimateAbility;
+
+    public Hitbox hitbox;
 }

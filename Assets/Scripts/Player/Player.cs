@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
         movement.Move(movementInput.x, movementInput.y);
     }
 
-    [SerializeField] PlayerCombat combat;
+    public PlayerCombat combat;
     void SetUpCombat()
     {
         input.Player.Attack.performed += context => combat.attackAbility.Activate(this);

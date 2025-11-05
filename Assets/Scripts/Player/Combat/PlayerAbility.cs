@@ -3,7 +3,7 @@ using UnityEngine;
 public abstract class PlayerAbility : ScriptableObject
 {
     [SerializeField] float cooldownTime;
-    [SerializeField] private string abilityName;
+    public string abilityName;
     [SerializeField] private AnimationClip clip;
 
     public float CooldownTime { get => cooldownTime; }
