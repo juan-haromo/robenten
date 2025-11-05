@@ -2,10 +2,13 @@ using System.Collections;
 using UnityEditor.Animations;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour,IDamageable
 {
     Input input;
     public PlayerMovement movement;
+    Vector2 movementInput;
+    public Animator playerAnimator;
+    int health = 100;
     public PlayerHealthSystem health;
     public AnimManager animManager;
 
@@ -16,8 +19,8 @@ public class Player : MonoBehaviour
     void Awake()
     {
         input = new Input();
-        input.Player.Enable();
         SetUpCombat();
+        input.Player.Enable();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -55,5 +58,10 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         ability.Deactivate(this);
+    }
+
+    public void Damage(int damage)
+    {
+        health -= damage;
     }
 }
