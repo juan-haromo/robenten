@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RangeAttack", menuName = "Player/Abilities/Range/Attack")]
+[CreateAssetMenu(fileName = "RangeSpecial", menuName = "Player/Abilities/Range/Special")]
 public class RangeSpecial : PlayerAbility
 {
     [SerializeField] private GameObject proyectilePrefab;
@@ -9,9 +9,6 @@ public class RangeSpecial : PlayerAbility
 
     public override void Activate(Player player)
     {
-        //Vector3 mouseScreenPos = Input.mousePosition;
-        //mouseScreenPos.z = Camera.main.nearClipPlane;
-        //Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Camera.);
         if (player.canUseAbilities)
             ShootSpecialArrow(player);
     }

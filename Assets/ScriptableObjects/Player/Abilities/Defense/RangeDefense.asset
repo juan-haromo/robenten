@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4720d15b6537c647a25de9decf23293, type: 3}
+  m_Name: RangeDefense
+  m_EditorClassIdentifier: 
+  cooldownTime: 0
+  takeoffForce: 18
+  fallForce: 0.2
+  pushForce: 6
+  upPushForce: 7
+  pushDamage: 3
+  flyTime: 2
+  pushRadius: 4
+  enemyTag: Enemy
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 1
