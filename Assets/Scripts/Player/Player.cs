@@ -36,9 +36,13 @@ public class Player : MonoBehaviour
     void SetUpCombat()
     {
         input.Player.Attack.performed += context => combat.attackAbility.Activate(this);
+        combat.attackAbility.Initialize(this);
         input.Player.Defend.performed += context => combat.defenseAbility.Activate(this);
+        combat.defenseAbility.Initialize(this);
         input.Player.Special.performed += context => combat.specialAbility.Activate(this);
+        combat.specialAbility.Initialize(this);
         input.Player.Ultimate.performed += context => combat.ultimateAbility.Activate(this);
+        combat.ultimateAbility.Initialize(this);
     }
 
     public IEnumerator UltimateTimeActive(float time)

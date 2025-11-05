@@ -1,11 +1,10 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "TankAttak", menuName = "Player/Abilities/Tank/Attack")]
 public class TankAttack : PlayerAbility
 {
-    [SerializeField] private AnimatorOverrideController animOverride;
-
     public override void Activate(Player player)
     {
-        
+        player.animManager.PlayClip("Attack");
     }
 }
