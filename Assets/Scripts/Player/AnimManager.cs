@@ -8,7 +8,6 @@ public class AnimManager : MonoBehaviour
     public AnimatorOverrideController overrideController;
 
     public string originalClip; // The clip to be replaced
-    public AnimationClip newClip;      // The clip to replace with
 
     void Start()
     {
@@ -18,15 +17,14 @@ public class AnimManager : MonoBehaviour
             overrideController = new AnimatorOverrideController(animController.runtimeAnimatorController);
         }
 
-        // Set the new clip for the original clip
-        overrideController[originalClip] = newClip;
-
         // Apply the override controller to the Animator
         animController.runtimeAnimatorController = overrideController;
     }
 
     public void ReplaceClip(string oldClip, AnimationClip replacement)
     {
+        Debug.Log(replacement.name + oldClip);
+
         if (overrideController == null)
         {
             overrideController = new AnimatorOverrideController(animController.runtimeAnimatorController);

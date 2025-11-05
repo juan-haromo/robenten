@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "TankUltimate", menuName = "Player/Abilities/Tank/Defensive")]
 public class TankDefensive : PlayerAbility
 {
     public float activeTime = 10f;
@@ -14,6 +15,7 @@ public class TankDefensive : PlayerAbility
     {
         player.tankDefensiveExplotion.GetComponent<TankDefensiveExplotion>().damage = player.health.damageTaken;
         player.tankDefensiveExplotion.SetActive(true);
+        player.tankDefensiveExplotion.GetComponent<TankDefensiveExplotion>().Explode(player.health.damageTaken, 5, 10);
 
         player.health.absorbingDamage = false;
         player.health.damageTaken = 0;

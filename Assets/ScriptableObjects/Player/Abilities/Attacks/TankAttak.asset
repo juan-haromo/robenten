@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b77f73861e348549aa332aea18e5e23, type: 3}
-  m_Name: AssassinUlt
+  m_Script: {fileID: 11500000, guid: 8cc246cd8e08c7640b810bc0a275fdeb, type: 3}
+  m_Name: TankAttak
   m_EditorClassIdentifier: 
-  cooldownTime: 10
-  abilityName: Ult
-  clip: {fileID: -203655887218126122, guid: e4ff9aa4342adf44090f7fcdedb35fc5, type: 3}
-  shadowTime: 0
+  cooldownTime: 0.3
+  abilityName: Attack
+  clip: {fileID: 7400000, guid: e55776df10db57f4f925f357d2e6657a, type: 2}
+  radius: 2
+  pushForce: 0

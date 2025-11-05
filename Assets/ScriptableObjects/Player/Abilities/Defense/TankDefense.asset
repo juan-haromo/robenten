@@ -9,11 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 593494f8ed81f744c8b217dd17ae5659, type: 3}
-  m_Name: AssassinDefensive
+  m_Script: {fileID: 11500000, guid: 66e10e49a2262184dbd62881d2fe0d0f, type: 3}
+  m_Name: TankDefense
   m_EditorClassIdentifier: 
   cooldownTime: 0
   abilityName: Defensive
-  clip: {fileID: 7400000, guid: 2bd70e3e93693b545930a49485397f1d, type: 2}
-  smokeBombPrefab: {fileID: 3709388832594447579, guid: 1d945d8f07639ea438db5d96293329fa, type: 3}
-  smokebombForce: 1
+  clip: {fileID: 7400000, guid: 7b23304d360296f4ebdcb56fd75c0de6, type: 2}
+  activeTime: 10
