@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "TankUltimate", menuName = "Player/Abilities/Tank/Defensive")]
 public class TankDefensive : PlayerAbility
 {
     public float activeTime = 10f;

@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b77f73861e348549aa332aea18e5e23, type: 3}
-  m_Name: AssassinUlt
+  m_Script: {fileID: 11500000, guid: c54d246ea4e5d4546add34426957ff96, type: 3}
+  m_Name: TankSpecial
   m_EditorClassIdentifier: 
-  cooldownTime: 10
-  abilityName: Ult
-  clip: {fileID: -203655887218126122, guid: e4ff9aa4342adf44090f7fcdedb35fc5, type: 3}
-  shadowTime: 0
+  cooldownTime: 8
+  abilityName: Special
+  clip: {fileID: 7400000, guid: 7b23304d360296f4ebdcb56fd75c0de6, type: 2}
+  damage: 2
+  pullForce: 10

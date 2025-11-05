@@ -419,9 +419,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0
   pushForce: 0
-  layerGizmos:
+  layer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
 --- !u!4 &610425015
 Transform:
   m_ObjectHideFlags: 0
@@ -1020,7 +1020,7 @@ PrefabInstance:
     - target: {fileID: 4269036651134220036, guid: 25354d1fcd51d5b418c31c17dc9be488, type: 3}
       propertyPath: defenseAbility
       value: 
-      objectReference: {fileID: 11400000, guid: ee0e69b994f4a854fa491535b3b97eb1, type: 2}
+      objectReference: {fileID: 11400000, guid: b5f1e280db0d2bf4e9cd2e3aea2f229f, type: 2}
     - target: {fileID: 4269036651134220036, guid: 25354d1fcd51d5b418c31c17dc9be488, type: 3}
       propertyPath: imgSpecialIcon
       value: 
@@ -1028,7 +1028,7 @@ PrefabInstance:
     - target: {fileID: 4269036651134220036, guid: 25354d1fcd51d5b418c31c17dc9be488, type: 3}
       propertyPath: specialAbility
       value: 
-      objectReference: {fileID: 11400000, guid: c8dab5ffeb91b894791c26a12832be66, type: 2}
+      objectReference: {fileID: 11400000, guid: 4359addb602ce1742a7fb0f84a9a617b, type: 2}
     - target: {fileID: 4269036651134220036, guid: 25354d1fcd51d5b418c31c17dc9be488, type: 3}
       propertyPath: imgUltimateIcon
       value: 
@@ -1036,7 +1036,7 @@ PrefabInstance:
     - target: {fileID: 4269036651134220036, guid: 25354d1fcd51d5b418c31c17dc9be488, type: 3}
       propertyPath: ultimateAbility
       value: 
-      objectReference: {fileID: 11400000, guid: 63162353aee12e64e9b508b58feb2497, type: 2}
+      objectReference: {fileID: 11400000, guid: 73fb491b187b2c74cb7fdfcae1230f2d, type: 2}
     - target: {fileID: 4269036651134220036, guid: 25354d1fcd51d5b418c31c17dc9be488, type: 3}
       propertyPath: specialChargeRate
       value: 25
@@ -1088,7 +1088,7 @@ PrefabInstance:
     - target: {fileID: 4269036651134220036, guid: 25354d1fcd51d5b418c31c17dc9be488, type: 3}
       propertyPath: 'defenses.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: ee0e69b994f4a854fa491535b3b97eb1, type: 2}
+      objectReference: {fileID: 11400000, guid: b5f1e280db0d2bf4e9cd2e3aea2f229f, type: 2}
     - target: {fileID: 4269036651134220036, guid: 25354d1fcd51d5b418c31c17dc9be488, type: 3}
       propertyPath: 'defenses.Array.data[1]'
       value: 
@@ -1104,7 +1104,7 @@ PrefabInstance:
     - target: {fileID: 4269036651134220036, guid: 25354d1fcd51d5b418c31c17dc9be488, type: 3}
       propertyPath: 'specials.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: d3012100585f6a143b5d6a25e88206c2, type: 2}
+      objectReference: {fileID: 11400000, guid: 4359addb602ce1742a7fb0f84a9a617b, type: 2}
     - target: {fileID: 4269036651134220036, guid: 25354d1fcd51d5b418c31c17dc9be488, type: 3}
       propertyPath: 'specials.Array.data[1]'
       value: 
@@ -1120,7 +1120,7 @@ PrefabInstance:
     - target: {fileID: 4269036651134220036, guid: 25354d1fcd51d5b418c31c17dc9be488, type: 3}
       propertyPath: 'ultimates.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 02239d3463aa7204aa07602ff9394dcc, type: 2}
+      objectReference: {fileID: 11400000, guid: 73fb491b187b2c74cb7fdfcae1230f2d, type: 2}
     - target: {fileID: 4269036651134220036, guid: 25354d1fcd51d5b418c31c17dc9be488, type: 3}
       propertyPath: 'ultimates.Array.data[1]'
       value: 
@@ -2094,9 +2094,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 0
   pushForce: 0
-  layerGizmos:
+  layer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 0
 --- !u!4 &1933389965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4722640434465669671, guid: 25354d1fcd51d5b418c31c17dc9be488, type: 3}

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "TankUltimate", menuName = "Player/Abilities/Tank/Special")]
 public class TankSpecial : PlayerAbility
 {
     [SerializeField] private float damage, pullForce;
