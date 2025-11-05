@@ -54,7 +54,9 @@ public class PlayerMovement : MonoBehaviour
         Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
         if(flatVel.magnitude > currentMaxMoveSpeed)
         {
-            rb.linearVelocity = flatVel.normalized * currentMaxMoveSpeed;
+            flatVel = flatVel.normalized * currentMaxMoveSpeed;
+            flatVel.y = rb.linearVelocity.y;
+            rb.linearVelocity = flatVel;
         }
     }
 }
