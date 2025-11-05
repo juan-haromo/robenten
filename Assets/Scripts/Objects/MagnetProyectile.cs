@@ -20,7 +20,10 @@ public class MagnetProyectile : ProyectileClass
         {
             if (other.gameObject.CompareTag(targetTag))
             {
-                //Hacerle daño
+                if (other.gameObject.TryGetComponent(out IDamageable dmg))
+                {
+                    dmg.Damage(damage);
+                }
             }
             rb.useGravity = false;
             rb.linearVelocity = Vector3.zero;

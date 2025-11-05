@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class ProyectileClass : MonoBehaviour
 {
-    [SerializeField] protected float damage, speed;
+    [SerializeField] protected int damage;
+    [SerializeField] protected float speed;
     [SerializeField] protected string targetTag;
     protected Rigidbody rb;
 
@@ -22,7 +23,10 @@ public class ProyectileClass : MonoBehaviour
         {
             if (other.gameObject.CompareTag(targetTag))
             {
-                //Hacerle daño
+                if(other.gameObject.TryGetComponent(out IDamageable dmg))
+                {
+                    dmg.Damage(damage);
+                }
             }
             Destroy(gameObject);
         }

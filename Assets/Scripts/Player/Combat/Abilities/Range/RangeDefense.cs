@@ -4,8 +4,9 @@ using System.Collections;
 [CreateAssetMenu(fileName = "RangeDefense", menuName = "Player/Abilities/Range/Defense")]
 public class RangeDefense : PlayerAbility
 {
-    [SerializeField] private float takeoffForce, fallForce, pushForce, upPushForce, pushDamage, flyTime, pushRadius;
+    [SerializeField] private float takeoffForce, fallForce, pushForce, upPushForce, flyTime, pushRadius;
     [SerializeField] private string enemyTag;
+    [SerializeField] private int pushDamage;
     [SerializeField] private LayerMask groundLayer, enemyLayer;
     private Coroutine flyCoroutine;
 
@@ -34,6 +35,10 @@ public class RangeDefense : PlayerAbility
         {
             if (target.gameObject.CompareTag(enemyTag))
             {
+                if (target.gameObject.TryGetComponent(out IDamageable dmg))
+                {
+                    dmg.Damage(pushDamage);
+                }
                 //Aqui tambien se podria hacer daño al enemigo con pushDamage
                 if (target.gameObject.TryGetComponent(out Rigidbody trb))
                 {

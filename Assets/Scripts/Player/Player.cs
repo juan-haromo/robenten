@@ -41,7 +41,6 @@ public class Player : MonoBehaviour
     {
         input.Player.Attack.performed += context => combat.attackAbility.Activate(this);
         combat.attackAbility.Initialize(this);
-        input.Player.Attack.started += context => combat.attackAbility.Activate(this);
         input.Player.Attack.canceled += context => combat.attackAbility.Deactivate(this);
         input.Player.Defend.performed += context => combat.defenseAbility.Activate(this);
         combat.defenseAbility.Initialize(this);
