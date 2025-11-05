@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -114,4 +115,7 @@ public class PlayerCombat : MonoBehaviour
         }
         IsUltimateCharged = true;
     }
+    public PlayerAbilityUltimate ultimateAbility;
+
+    public Hitbox hitbox;
 }
