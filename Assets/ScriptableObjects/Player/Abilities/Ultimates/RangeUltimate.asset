@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5445e02e919acc745b5d864db015fab3, type: 3}
   m_Name: RangeUltimate
   m_EditorClassIdentifier: 
-  cooldownTime: 0
+  cooldownTime: 0.02
   abilityName: 
   clip: {fileID: 0}
+  proyectilePrefab: {fileID: 3460063283489569077, guid: 0c503f9cfe163134eb9824d9b3f554ed, type: 3}
   takeoffForce: 20
   takeoffTime: 3
-  flyTime: 6
+  flyTime: 10
+  attackRange: 60
+  worldLayer:
+    serializedVersion: 2
+    m_Bits: 1
