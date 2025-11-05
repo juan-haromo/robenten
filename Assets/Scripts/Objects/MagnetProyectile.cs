@@ -5,14 +5,13 @@ public class MagnetProyectile : ProyectileClass
 {
     [SerializeField] private float attractStartTime, attractDuration, attractForce, attractRadius, attractIncrease, radiusIncrease, increaseRate;
     [SerializeField] private LayerMask targetLayer;
-    [SerializeField] private GameObject effectArea;
+    [SerializeField] private ParticleSystem magneticEffect, outerEffect;
     private bool canAttract;
 
     protected override void Awake()
     {
         base.Awake();
         canAttract = false;
-        effectArea.SetActive(false);
     }
 
     protected override void OnTriggerEnter(Collider other)
@@ -57,18 +56,28 @@ public class MagnetProyectile : ProyectileClass
     {
         attractForce += attractIncrease;
         attractRadius += radiusIncrease;
-        effectArea.transform.parent = null;
-        effectArea.transform.localScale = new Vector3(attractRadius * 2, attractRadius * 2, attractRadius * 2);
-        effectArea.transform.parent = transform;
+        //magneticEffect.transform.parent = null;
+        //effectArea.transform.localScale = new Vector3(attractRadius * 2, attractRadius * 2, attractRadius * 2);
+        //effectArea.transform.parent = transform;
+        magneticEffect.transform.parent = null;
+        magneticEffect.transform.localScale = new Vector3(attractRadius * 0.6f, attractRadius * 0.6f, attractRadius * 0.6f);
+        magneticEffect.transform.parent = transform;
+        outerEffect.transform.parent = null;
+        outerEffect.transform.localScale = new Vector3(attractRadius * 0.6f, attractRadius * 0.6f, attractRadius * 0.6f);
+        outerEffect.transform.parent = transform;
+        //ParticleSystem.SizeOverLifetimeModule sizeOverLifetimeModule = effectSystem.sizeOverLifetime;
+        //sizeOverLifetimeModule.size = new ParticleSystem.MinMaxCurve(0f, attractRadius * 2);
     }
 
     private void StartAttraction()
     {
         canAttract = true;
-        effectArea.transform.parent = null;
-        effectArea.transform.localScale = new Vector3(attractRadius * 2, attractRadius * 2, attractRadius * 2);
-        effectArea.transform.parent = transform;
-        effectArea.SetActive(true);
+        //effectArea.transform.parent = null;
+        //effectArea.transform.localScale = new Vector3(attractRadius * 2, attractRadius * 2, attractRadius * 2);
+        //effectArea.transform.parent = transform;
+        //effectArea.SetActive(false);
+        magneticEffect.Play();
+        outerEffect.Play();
         InvokeRepeating("IncreaseAttractionForceAndRadius", increaseRate, increaseRate);
         Invoke("StopAttraction", attractDuration);
     }
