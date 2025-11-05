@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: AssassinDefensive
   m_EditorClassIdentifier: 
   cooldownTime: 0
+  abilityName: Defensive
+  clip: {fileID: 7400000, guid: 2bd70e3e93693b545930a49485397f1d, type: 2}
   smokeBombPrefab: {fileID: 3709388832594447579, guid: 1d945d8f07639ea438db5d96293329fa, type: 3}
   smokebombForce: 1

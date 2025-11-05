@@ -13,3 +13,6 @@ MonoBehaviour:
   m_Name: AssassinUlt
   m_EditorClassIdentifier: 
   cooldownTime: 10
+  abilityName: Ultimate
+  clip: {fileID: -203655887218126122, guid: e4ff9aa4342adf44090f7fcdedb35fc5, type: 3}
+  shadowTime: 0

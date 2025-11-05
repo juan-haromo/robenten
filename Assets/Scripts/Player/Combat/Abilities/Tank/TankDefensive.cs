@@ -14,6 +14,7 @@ public class TankDefensive : PlayerAbility
     {
         player.tankDefensiveExplotion.GetComponent<TankDefensiveExplotion>().damage = player.health.damageTaken;
         player.tankDefensiveExplotion.SetActive(true);
+        player.tankDefensiveExplotion.GetComponent<TankDefensiveExplotion>().Explode(player.health.damageTaken, 5, 10);
 
         player.health.absorbingDamage = false;
         player.health.damageTaken = 0;

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TankSpecial : PlayerAbility
 {
+    [SerializeField] private float damage, pullForce;
     Vector3 hitpoint;
 
     public override void Activate(Player player)
@@ -14,9 +15,13 @@ public class TankSpecial : PlayerAbility
 
         if (Physics.Raycast(player.transform.position, hitpoint, out RaycastHit enemyPos))
         {
-            if (enemyPos.transform.gameObject.TryGetComponent<PlayerHealthSystem>(out PlayerHealthSystem enemyHealth))
+            if (enemyPos.transform.gameObject.TryGetComponent<Rigidbody>(out Rigidbody rb))
             {
-                enemyHealth.TakeDamage(0);
+                rb.AddForce(player.transform.position - rb.transform.position * pullForce, ForceMode.Impulse);
+                if (enemyPos.transform.gameObject.TryGetComponent<IDamageable>(out IDamageable damageable))
+                {
+                    damageable.Damage(damage);
+                }
             }
         }
     }

@@ -2026,7 +2026,6 @@ MonoBehaviour:
   animController: {fileID: 1827153128}
   overrideController: {fileID: 22100000, guid: 9cdf8ae5e19f0f142939a54bd526570c, type: 2}
   originalClip: 
-  newClip: {fileID: 0}
 --- !u!95 &1827153128
 Animator:
   serializedVersion: 7
@@ -2123,7 +2122,6 @@ MonoBehaviour:
   animController: {fileID: 1933389966}
   overrideController: {fileID: 22100000, guid: 9cdf8ae5e19f0f142939a54bd526570c, type: 2}
   originalClip: 
-  newClip: {fileID: 0}
 --- !u!114 &1933389973
 MonoBehaviour:
   m_ObjectHideFlags: 0

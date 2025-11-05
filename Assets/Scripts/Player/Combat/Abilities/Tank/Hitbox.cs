@@ -3,11 +3,18 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
     public float radius, pushForce;
-    [SerializeField] private LayerMask layerGizmos;
+    [SerializeField] private LayerMask layer;
 
-    public void TriggerHitbox()
+    private void OnEnable()
     {
-        Collider[] enemies = Physics.OverlapSphere(transform.position, radius);
+        TriggerHitbox();
+    }
+
+    private void TriggerHitbox()
+    {
+        Debug.Log(radius + pushForce);
+
+        Collider[] enemies = Physics.OverlapSphere(transform.position, radius, layer);
         foreach (Collider enemy in enemies)
         {
             enemy.gameObject.GetComponent<Rigidbody>().AddExplosionForce(pushForce, transform.position, radius);
@@ -17,7 +24,7 @@ public class Hitbox : MonoBehaviour
     private void OnDrawGizmos()
     {
         // Check if any collider is inside the sphere
-        bool detected = Physics.CheckSphere(transform.position, radius, layerGizmos);
+        bool detected = Physics.CheckSphere(transform.position, radius, layer);
 
         // Change color based on detection
         Gizmos.color = detected ? Color.green : Color.red;

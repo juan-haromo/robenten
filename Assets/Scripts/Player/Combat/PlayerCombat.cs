@@ -118,8 +118,4 @@ public class PlayerCombat : MonoBehaviour
 
     public Hitbox hitbox;
 
-    public void CallHitbox()
-    {
-        hitbox.TriggerHitbox();
-    }
 }

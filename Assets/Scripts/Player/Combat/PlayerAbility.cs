@@ -10,6 +10,7 @@ public abstract class PlayerAbility : ScriptableObject
 
     public virtual void Initialize(Player player)
     {
+        Debug.Log("initialize");
         player.animManager.ReplaceClip(abilityName, clip);
     }
 
