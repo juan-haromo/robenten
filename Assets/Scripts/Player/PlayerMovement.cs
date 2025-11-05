@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public float normalAcceleration = 5.0f;
     public float normalMaxMoveSpeed = 5.0f;
 
-    Vector3 viewDirection;
+    public Vector3 viewDirection;
     Vector3 inputDirection;
     bool wasPressingKeys = false;
 

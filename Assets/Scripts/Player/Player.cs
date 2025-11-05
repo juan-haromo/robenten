@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public AnimManager animManager;
 
     public GameObject TankUltimateBall, tankDefensiveExplotion;
+    public Transform proyectileSpawnpoint;
+    public bool canUseAbilities;
 
     void Awake()
     {
@@ -21,6 +23,8 @@ public class Player : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        canUseAbilities = true;
     }
 
     void Update()
@@ -37,6 +41,8 @@ public class Player : MonoBehaviour
     {
         input.Player.Attack.performed += context => combat.attackAbility.Activate(this);
         combat.attackAbility.Initialize(this);
+        input.Player.Attack.started += context => combat.attackAbility.Activate(this);
+        input.Player.Attack.canceled += context => combat.attackAbility.Deactivate(this);
         input.Player.Defend.performed += context => combat.defenseAbility.Activate(this);
         combat.defenseAbility.Initialize(this);
         input.Player.Special.performed += context => combat.specialAbility.Activate(this);
