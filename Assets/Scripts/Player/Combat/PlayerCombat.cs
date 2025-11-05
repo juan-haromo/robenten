@@ -115,7 +115,7 @@ public class PlayerCombat : MonoBehaviour
         }
         IsUltimateCharged = true;
     }
-    public PlayerAbilityUltimate ultimateAbility;
 
     public Hitbox hitbox;
+
 }

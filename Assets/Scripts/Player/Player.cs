@@ -2,17 +2,14 @@ using System.Collections;
 using UnityEditor.Animations;
 using UnityEngine;
 
-public class Player : MonoBehaviour,IDamageable
+public class Player : MonoBehaviour
 {
     Input input;
     public PlayerMovement movement;
     Vector2 movementInput;
     public Animator playerAnimator;
-    int health = 100;
     public PlayerHealthSystem health;
     public AnimManager animManager;
-
-    Vector2 movementInput;
 
     public GameObject TankUltimateBall, tankDefensiveExplotion;
 
@@ -48,20 +45,9 @@ public class Player : MonoBehaviour,IDamageable
         combat.ultimateAbility.Initialize(this);
     }
 
-    public IEnumerator UltimateTimeActive(float time)
-    {
-        yield return new WaitForSeconds(time);
-        combat.ultimateAbility.ExitUltimate(this);
-    }
-
     public IEnumerator ActiveAbility(float time, PlayerAbility ability)
     {
         yield return new WaitForSeconds(time);
         ability.Deactivate(this);
-    }
-
-    public void Damage(int damage)
-    {
-        health -= damage;
     }
 }

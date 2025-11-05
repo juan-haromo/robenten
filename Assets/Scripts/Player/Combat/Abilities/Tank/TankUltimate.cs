@@ -26,6 +26,6 @@ public class TankUltimate : PlayerAbility
         collider.radius = .5f;
         collider.height = 2f;
 
-        player.TankUltimateBall.gameObject.SetActive(false);
+        player.TankUltimateBall.SetActive(false);
     }
 }

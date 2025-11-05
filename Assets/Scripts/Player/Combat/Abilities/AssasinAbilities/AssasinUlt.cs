@@ -18,13 +18,13 @@ public class AssasinUlt : PlayerAbility
     IEnumerator ShadowForm(PlayerMovement player) 
     {
         
-        player.acceleration *= 2;
-        player.maxMoveSpeed *= 2;
+        player.currentAcceleration *= 2;
+        player.currentMaxMoveSpeed *= 2;
         shadowTime = true;
         player.StartCoroutine(ShadowAura(player.gameObject));
     yield return new WaitForSeconds(10);
-        player.maxMoveSpeed /= 2;
-        player.acceleration /= 2;
+        player.currentMaxMoveSpeed /= 2;
+        player.currentAcceleration /= 2;
         shadowTime = false;
         foreach (IDamageable item in HitEnemies) //reemplazae por hacer daño
         {
