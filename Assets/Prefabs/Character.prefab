@@ -1,5 +1,68 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5668923122406289647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2974676643615607726}
+  m_Layer: 0
+  m_Name: LookPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2974676643615607726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5668923122406289647}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1, y: 2.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4354959220762259365}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6344525506058956873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4354959220762259365}
+  m_Layer: 0
+  m_Name: Orientation
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4354959220762259365
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6344525506058956873}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2974676643615607726}
+  m_Father: {fileID: 4722640434465669671}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5044182256089064908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10,15 +73,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: aa85df5643089724088f0b40838da8ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.2795386
+      value: -0.03261
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aa85df5643089724088f0b40838da8ec, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000047683716
+      value: 1.46663
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aa85df5643089724088f0b40838da8ec, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.0220127
+      value: -0.49894
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aa85df5643089724088f0b40838da8ec, type: 3}
       propertyPath: m_LocalRotation.w
@@ -48,17 +111,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -646874606815247751, guid: aa85df5643089724088f0b40838da8ec, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aa85df5643089724088f0b40838da8ec, type: 3}
       propertyPath: m_Name
-      value: akai_e_espiritu
+      value: Character
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aa85df5643089724088f0b40838da8ec, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1082271958561512970, guid: aa85df5643089724088f0b40838da8ec, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: aa85df5643089724088f0b40838da8ec, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 4354959220762259365}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: aa85df5643089724088f0b40838da8ec, type: 3}
       insertIndex: -1
@@ -124,11 +198,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fb2a088e51e8104a84c3fd4cec76d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  explorationCamera: {fileID: 0}
-  orientation: {fileID: 0}
+  combatCamera: {fileID: 0}
+  orientation: {fileID: 4354959220762259365}
   player: {fileID: 4722640434465669671}
   playerObj: {fileID: 4722640434465669671}
   rb: {fileID: 5570742125063175618}
+  combatLookAt: {fileID: 2974676643615607726}
   rotationSpeed: 5
   acceleration: 5
   maxMoveSpeed: 20
@@ -163,6 +238,26 @@ MonoBehaviour:
   defenseAbility: {fileID: 11400000, guid: ee0e69b994f4a854fa491535b3b97eb1, type: 2}
   specialAbility: {fileID: 11400000, guid: c8dab5ffeb91b894791c26a12832be66, type: 2}
   ultimateAbility: {fileID: 11400000, guid: 63162353aee12e64e9b508b58feb2497, type: 2}
+  attacks:
+  - {fileID: 11400000, guid: 2813362fec77e044f844a134853c1076, type: 2}
+  - {fileID: 11400000, guid: adbe245f17d4b144d92bdf48127e4643, type: 2}
+  defenses:
+  - {fileID: 11400000, guid: b022a3a96918dd647a0ac27a06579b0d, type: 2}
+  - {fileID: 11400000, guid: ee0e69b994f4a854fa491535b3b97eb1, type: 2}
+  specials:
+  - {fileID: 11400000, guid: d3012100585f6a143b5d6a25e88206c2, type: 2}
+  - {fileID: 11400000, guid: ee0e69b994f4a854fa491535b3b97eb1, type: 2}
+  ultimates:
+  - {fileID: 11400000, guid: 02239d3463aa7204aa07602ff9394dcc, type: 2}
+  - {fileID: 11400000, guid: 63162353aee12e64e9b508b58feb2497, type: 2}
+  imgSpecialIcon: {fileID: 0}
+  imgSpecialCooldown: {fileID: 0}
+  imgUltimateIcon: {fileID: 0}
+  imgUltimateCooldown: {fileID: 0}
+  minCooldown: 5
+  maxCooldown: 10
+  specialChargeRate: 25
+  ultimateChargeRate: 10
 --- !u!54 &5570742125063175618
 Rigidbody:
   m_ObjectHideFlags: 0

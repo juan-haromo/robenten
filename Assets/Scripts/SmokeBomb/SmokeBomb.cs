@@ -10,7 +10,11 @@ public class SmokeBomb : MonoBehaviour
 
     private void Start()
     {
-        particles= GameObject.FindAnyObjectByType<ParticleSystem>(FindObjectsInactive.Include).gameObject;
+        particles = GameObject.FindAnyObjectByType<ParticleSystem>(FindObjectsInactive.Include).gameObject;
+        if (particles.name=="ParticleSubSystem")
+        {
+            particles = particles.transform.parent.gameObject;
+        }
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -19,9 +23,9 @@ public class SmokeBomb : MonoBehaviour
             activated = true;
             gameObject.GetComponent<Rigidbody>().freezeRotation = true;
             gameObject.GetComponent<Rigidbody>().linearVelocity = new Vector3(0,0,0);
-        StartCoroutine(smokeBombActive());
-        particles.transform.position = gameObject.transform.position;
-        particles.SetActive(true);
+            StartCoroutine(smokeBombActive());
+            particles.transform.position = gameObject.transform.position+new Vector3(0,1.5f,0);
+            particles.SetActive(true);
 
         }
         

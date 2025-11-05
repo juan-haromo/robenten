@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5956960787309142757}
   - component: {fileID: 6503380453917684251}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: ParticleSubSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5388,7 +5388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5301297017569762224
 Transform:
   m_ObjectHideFlags: 0
@@ -5398,7 +5398,7 @@ Transform:
   m_GameObject: {fileID: 4999207692213086743}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.8297905, y: 0.03975012, z: -8.971443}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5983,7 +5983,7 @@ ParticleSystem:
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.3
       minScalar: 0
       maxCurve:
         serializedVersion: 2
