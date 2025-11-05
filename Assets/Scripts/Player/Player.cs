@@ -1,3 +1,5 @@
+using System.Collections;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -5,6 +7,11 @@ public class Player : MonoBehaviour
     Input input;
     public PlayerMovement movement;
     Vector2 movementInput;
+    public Animator playerAnimator;
+    public PlayerHealthSystem health;
+    public AnimManager animManager;
+
+    public GameObject TankUltimateBall, tankDefensiveExplotion;
     public Transform proyectileSpawnpoint;
     public bool canUseAbilities;
 
@@ -29,13 +36,24 @@ public class Player : MonoBehaviour
         movement.Move(movementInput.x, movementInput.y);
     }
 
-    [SerializeField] PlayerCombat combat;
+    public PlayerCombat combat;
     void SetUpCombat()
     {
+        input.Player.Attack.performed += context => combat.attackAbility.Activate(this);
+        combat.attackAbility.Initialize(this);
         input.Player.Attack.started += context => combat.attackAbility.Activate(this);
         input.Player.Attack.canceled += context => combat.attackAbility.Deactivate(this);
         input.Player.Defend.performed += context => combat.defenseAbility.Activate(this);
+        combat.defenseAbility.Initialize(this);
         input.Player.Special.performed += context => combat.specialAbility.Activate(this);
+        combat.specialAbility.Initialize(this);
         input.Player.Ultimate.performed += context => combat.ultimateAbility.Activate(this);
+        combat.ultimateAbility.Initialize(this);
+    }
+
+    public IEnumerator ActiveAbility(float time, PlayerAbility ability)
+    {
+        yield return new WaitForSeconds(time);
+        ability.Deactivate(this);
     }
 }
