@@ -172,6 +172,10 @@ PrefabInstance:
       value: MeleeEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 5267446367065499962, guid: 9832aba85f9c74f4b9a5fca64ef54035, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267446367065499962, guid: 9832aba85f9c74f4b9a5fca64ef54035, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
