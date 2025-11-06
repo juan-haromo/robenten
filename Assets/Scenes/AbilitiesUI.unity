@@ -172,6 +172,10 @@ PrefabInstance:
       value: MeleeEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 5267446367065499962, guid: 9832aba85f9c74f4b9a5fca64ef54035, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5267446367065499962, guid: 9832aba85f9c74f4b9a5fca64ef54035, type: 3}
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
@@ -1730,7 +1734,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animController: {fileID: 1933389966}
   overrideController: {fileID: 22100000, guid: 9cdf8ae5e19f0f142939a54bd526570c, type: 2}
-  originalClip: 
 --- !u!114 &1933389973
 MonoBehaviour:
   m_ObjectHideFlags: 0
