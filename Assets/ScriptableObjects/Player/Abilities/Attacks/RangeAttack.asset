@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: RangeAttack
   m_EditorClassIdentifier: 
   cooldownTime: 0.8
+  abilityName: Attack
+  clip: {fileID: 7400000, guid: 7b23304d360296f4ebdcb56fd75c0de6, type: 2}
   proyectilePrefab: {fileID: 3460063283489569077, guid: 3d8e271fcd7e216428d71c9478ce6e10, type: 3}
   attackRange: 60
-  arrowSpeed: 20
   worldLayer:
     serializedVersion: 2
     m_Bits: 1

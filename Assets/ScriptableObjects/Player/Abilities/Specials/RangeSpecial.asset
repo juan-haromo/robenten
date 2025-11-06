@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: RangeSpecial
   m_EditorClassIdentifier: 
   cooldownTime: 0
+  abilityName: Special
+  clip: {fileID: 7400000, guid: 7b23304d360296f4ebdcb56fd75c0de6, type: 2}
   proyectilePrefab: {fileID: 3460063283489569077, guid: 302575fab194ee949abd464a2655ecde, type: 3}
   attackRange: 100
   worldLayer:

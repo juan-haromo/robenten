@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: RangeDefense
   m_EditorClassIdentifier: 
   cooldownTime: 0
-  abilityName: 
-  clip: {fileID: 0}
+  abilityName: Defensive
+  clip: {fileID: 7400000, guid: 7b23304d360296f4ebdcb56fd75c0de6, type: 2}
   takeoffForce: 18
   fallForce: 0.2
   pushForce: 6
