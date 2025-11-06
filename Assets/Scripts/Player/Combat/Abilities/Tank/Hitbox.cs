@@ -12,7 +12,6 @@ public class Hitbox : MonoBehaviour
 
     private void TriggerHitbox()
     {
-        Debug.Log(radius + pushForce);
 
         Collider[] enemies = Physics.OverlapSphere(transform.position, radius, layer);
         foreach (Collider enemy in enemies)

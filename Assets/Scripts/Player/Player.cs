@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
 
     void Awake()
     {
+        combat.player = this;
+
         input = new Input();
         SetUpCombat();
         input.Player.Enable();

@@ -37,6 +37,8 @@ public class PlayerCombat : MonoBehaviour
     float specialCharge;
     float ultimateCharge;
 
+    public Player player;
+
     void Start()
     {
         UseSpecial();
@@ -54,9 +56,13 @@ public class PlayerCombat : MonoBehaviour
     void ChangeAbilities()
     {
         attackAbility = ChangeAbility(attackAbility, attacks);
+        attackAbility.Initialize(player);
         defenseAbility = ChangeAbility(defenseAbility, defenses);
+        defenseAbility.Initialize(player);
         specialAbility = ChangeAbility(specialAbility, specials);
+        specialAbility.Initialize(player);
         ultimateAbility = ChangeAbility(ultimateAbility, ultimates);
+        ultimateAbility.Initialize(player);
 
         nextChangeTime = Time.time + Random.Range(minCooldown, maxCooldown);
     }
