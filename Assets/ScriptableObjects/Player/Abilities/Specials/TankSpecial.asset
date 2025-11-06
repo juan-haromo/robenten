@@ -15,5 +15,6 @@ MonoBehaviour:
   cooldownTime: 8
   abilityName: Special
   clip: {fileID: 7400000, guid: 7b23304d360296f4ebdcb56fd75c0de6, type: 2}
+  abilitySprite: {fileID: -292154984, guid: 8fb65130754c85b469cb11836dd5304e, type: 3}
   damage: 2
   pullForce: 10

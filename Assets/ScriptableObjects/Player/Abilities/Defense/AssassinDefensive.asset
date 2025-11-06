@@ -15,5 +15,6 @@ MonoBehaviour:
   cooldownTime: 0
   abilityName: Defensive
   clip: {fileID: 7400000, guid: 2bd70e3e93693b545930a49485397f1d, type: 2}
+  abilitySprite: {fileID: 105331970, guid: 8fb65130754c85b469cb11836dd5304e, type: 3}
   smokeBombPrefab: {fileID: 3709388832594447579, guid: 1d945d8f07639ea438db5d96293329fa, type: 3}
   smokebombForce: 1

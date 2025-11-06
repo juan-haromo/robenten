@@ -34,10 +34,13 @@ public class PlayerCombat : MonoBehaviour
     [SerializeField] List<PlayerAbility> ultimates;
 
     [Header("UI")]
+    [SerializeField] Image imgAttackIcon;
+    [SerializeField] Image imgDefensiveIcon;
     [SerializeField] Image imgSpecialIcon;
     [SerializeField] Image imgSpecialCooldown;
     [SerializeField] Image imgUltimateIcon;
     [SerializeField] Image imgUltimateCooldown;
+
 
     [Header("Ability change cooldowns")]
     [SerializeField] float minCooldown;
@@ -70,9 +73,18 @@ public class PlayerCombat : MonoBehaviour
     void ChangeAbilities()
     {
         attackAbility = ChangeAbility(attackAbility, attacks);
+        imgAttackIcon.sprite = attackAbility.abilitySprite;
+
         defenseAbility = ChangeAbility(defenseAbility, defenses);
+        imgDefensiveIcon.sprite = defenseAbility.abilitySprite;
+
         specialAbility = ChangeAbility(specialAbility, specials);
+        imgSpecialIcon.sprite = specialAbility.abilitySprite;
+        imgSpecialCooldown.sprite = specialAbility.abilitySprite;
+
         ultimateAbility = ChangeAbility(ultimateAbility, ultimates);
+        imgUltimateIcon.sprite = ultimateAbility.abilitySprite;
+        imgUltimateCooldown.sprite = ultimateAbility.abilitySprite;
 
         nextChangeTime = Time.time + Random.Range(minCooldown, maxCooldown);
     }
