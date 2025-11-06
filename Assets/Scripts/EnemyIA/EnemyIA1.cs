@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyIA1 : MonoBehaviour
+public class EnemyIA1 : MonoBehaviour, IDamageable
 {
     [Header("Configuración de Patrulla")]
     public float patrolRadius = 20f;
@@ -22,8 +22,12 @@ public class EnemyIA1 : MonoBehaviour
     private float waitTimer;
     private bool isChasing = false;
 
+    [SerializeField] private float currentHealth, maxHealth;
+
     void Start()
     {
+        currentHealth = maxHealth;
+
         agent = GetComponent<NavMeshAgent>();
 
         // Buscar jugador por tag
@@ -153,5 +157,15 @@ public class EnemyIA1 : MonoBehaviour
 
         Gizmos.color = Color.cyan;
         Gizmos.DrawWireSphere(transform.position, stopDistance);
+    }
+
+    public void Damage(float damage)
+    {
+        currentHealth -= damage;
+
+        if (currentHealth <= 0) 
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

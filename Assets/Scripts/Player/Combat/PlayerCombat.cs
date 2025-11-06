@@ -55,6 +55,8 @@ public class PlayerCombat : MonoBehaviour
     float specialCharge;
     float ultimateCharge;
 
+    public Player player;
+
     void Start()
     {
         specialCharge = 0;
@@ -85,6 +87,13 @@ public class PlayerCombat : MonoBehaviour
         ultimateAbility = ChangeAbility(ultimateAbility, ultimates);
         imgUltimateIcon.sprite = ultimateAbility.abilitySprite;
         imgUltimateCooldown.sprite = ultimateAbility.abilitySprite;
+        attackAbility.Initialize(player);
+        defenseAbility = ChangeAbility(defenseAbility, defenses);
+        defenseAbility.Initialize(player);
+        specialAbility = ChangeAbility(specialAbility, specials);
+        specialAbility.Initialize(player);
+        ultimateAbility = ChangeAbility(ultimateAbility, ultimates);
+        ultimateAbility.Initialize(player);
 
         nextChangeTime = Time.time + Random.Range(minCooldown, maxCooldown);
     }

@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEditor.Animations;
+using UnityEditor.Playables;
 using UnityEngine;
 
 public class AnimManager : MonoBehaviour
@@ -7,37 +9,46 @@ public class AnimManager : MonoBehaviour
 
     public AnimatorOverrideController overrideController;
 
-    public string originalClip; // The clip to be replaced
-
-    void Start()
+    void Awake()
     {
-        // Create a new AnimatorOverrideController instance if not already assigned
-        if (overrideController == null)
-        {
-            overrideController = new AnimatorOverrideController(animController.runtimeAnimatorController);
-        }
-
-        // Apply the override controller to the Animator
+        // Create and assign one override controller that wraps the base controller
+        overrideController = new AnimatorOverrideController(animController.runtimeAnimatorController);
         animController.runtimeAnimatorController = overrideController;
     }
 
-    public void ReplaceClip(string oldClip, AnimationClip replacement)
+    public void ReplaceClip(string originalClipName, AnimationClip newClip)
     {
-        Debug.Log(replacement.name + oldClip);
-
-        if (overrideController == null)
+        if (newClip == null)
         {
-            overrideController = new AnimatorOverrideController(animController.runtimeAnimatorController);
-            animController.runtimeAnimatorController = overrideController;
+            Debug.LogWarning("New clip is null.");
+            return;
         }
 
-        if (overrideController[oldClip] != null)
+        // Get current overrides
+        var overrides = new List<KeyValuePair<AnimationClip, AnimationClip>>();
+        overrideController.GetOverrides(overrides);
+
+        bool replaced = false;
+
+        for (int i = 0; i < overrides.Count; i++)
         {
-            overrideController[oldClip] = replacement;
+            var pair = overrides[i];
+            if (pair.Key != null && pair.Key.name == originalClipName)
+            {
+                overrides[i] = new KeyValuePair<AnimationClip, AnimationClip>(pair.Key, newClip);
+                replaced = true;
+                break;
+            }
+        }
+
+        if (replaced)
+        {
+            overrideController.ApplyOverrides(overrides);
+            Debug.Log($"Replaced clip '{originalClipName}' with '{newClip.name}'.");
         }
         else
         {
-            Debug.LogWarning($"Clip '{oldClip}' not found in AnimatorOverrideController.");
+            Debug.LogWarning($"Clip '{originalClipName}' not found in AnimatorController.");
         }
     }
 

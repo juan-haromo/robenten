@@ -14,8 +14,11 @@ public class TankDefensiveExplotion : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(transform.position, radius);
         foreach (Collider enemy in enemies)
         {
-            enemy.gameObject.GetComponent<IDamageable>().Damage(damage);
-            enemy.gameObject.GetComponent<Rigidbody>().AddExplosionForce(pushForce, transform.position, radius);
+            if (enemy.TryGetComponent<IDamageable>(out IDamageable damageable))
+            {
+                damageable.Damage(damage);
+                enemy.gameObject.GetComponent<Rigidbody>().AddExplosionForce(pushForce, transform.position, radius);
+            }
         }
 
         damage = 0f;
