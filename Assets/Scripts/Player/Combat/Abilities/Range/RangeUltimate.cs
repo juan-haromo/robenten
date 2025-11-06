@@ -14,6 +14,8 @@ public class RangeUltimate : PlayerAbility
     public override void Activate(Player player)
     {
         if (!player.canUseAbilities) return;
+        if(!PlayerCombat.Instance.IsUltimateCharged){ return; }
+        PlayerCombat.Instance.UseUltimate();
         player.canUseAbilities = false;
         FlyUp(player);
     }

@@ -15,3 +15,4 @@ MonoBehaviour:
   cooldownTime: 0
   abilityName: Attack
   clip: {fileID: 7400000, guid: 5e6c19cf0e058544a9fb3dd41cc76911, type: 2}
+  abilitySprite: {fileID: 1220026199, guid: 8fb65130754c85b469cb11836dd5304e, type: 3}

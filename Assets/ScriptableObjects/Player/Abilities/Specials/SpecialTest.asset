@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TestAbility
   cooldownTime: 0
   abilityName: special attack test
+  clip: {fileID: 0}
+  abilitySprite: {fileID: -292154984, guid: 8fb65130754c85b469cb11836dd5304e, type: 3}

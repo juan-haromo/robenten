@@ -10,7 +10,8 @@ public class AssasinUlt : PlayerAbility
     LayerMask Enemies;
     public override void Activate(Player player)
     {
-        
+        if(!PlayerCombat.Instance.IsUltimateCharged){ return; }
+        PlayerCombat.Instance.UseUltimate();
         player.playerAnimator.SetTrigger("Ult");
         player.StartCoroutine(ShadowForm(player.movement));
     }
@@ -26,7 +27,7 @@ public class AssasinUlt : PlayerAbility
         player.currentMaxMoveSpeed /= 2;
         player.currentAcceleration /= 2;
         shadowTime = false;
-        foreach (IDamageable item in HitEnemies) //reemplazae por hacer daño
+        foreach (IDamageable item in HitEnemies) //reemplazae por hacer daï¿½o
         {
             item.Damage(80);
         }

@@ -15,8 +15,9 @@ MonoBehaviour:
   cooldownTime: 0
   abilityName: Defensive
   clip: {fileID: 7400000, guid: 7b23304d360296f4ebdcb56fd75c0de6, type: 2}
-  takeoffForce: 18
-  fallForce: 0.2
+  abilitySprite: {fileID: -1808330692, guid: 8fb65130754c85b469cb11836dd5304e, type: 3}
+  takeoffForce: 10
+  fallForce: 1.5
   pushForce: 6
   upPushForce: 7
   flyTime: 2
