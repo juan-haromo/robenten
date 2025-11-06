@@ -14,6 +14,8 @@ public abstract class PlayerAbility : ScriptableObject
         player.animManager.ReplaceClip(abilityName, clip);
     }
 
+    public virtual void Exit(Player player){}
+
     public abstract void Activate(Player player);
 
     public virtual void Deactivate(Player player) { }

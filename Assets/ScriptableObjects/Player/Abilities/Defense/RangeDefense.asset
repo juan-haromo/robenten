@@ -26,7 +26,7 @@ MonoBehaviour:
   pushDamage: 3
   groundLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 64
   enemyLayer:
     serializedVersion: 2
     m_Bits: 1

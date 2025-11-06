@@ -13,6 +13,7 @@ public class RangeUltimate : PlayerAbility
 
     public override void Activate(Player player)
     {
+        Debug.Log("Quiero ultear pero: " + player.canUseAbilities);
         if (!player.canUseAbilities) return;
         if(!PlayerCombat.Instance.IsUltimateCharged){ return; }
         PlayerCombat.Instance.UseUltimate();

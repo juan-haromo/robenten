@@ -14,6 +14,7 @@ public class RangeAttack : PlayerAbility
         //Vector3 mouseScreenPos = Input.mousePosition;
         //mouseScreenPos.z = Camera.main.nearClipPlane;
         //Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Camera.);
+        Debug.Log("Quiero disparar, pero canUseAbilitiesEs: " + player.canUseAbilities); 
         if (player.canUseAbilities)
             rangeAttackCoroutine = player.StartCoroutine(OnRangeAttack(player));
     }

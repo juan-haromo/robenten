@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEditor;
 
 [CreateAssetMenu(fileName = "RangeDefense", menuName = "Player/Abilities/Range/Defense")]
 public class RangeDefense : PlayerAbility
@@ -39,7 +40,7 @@ public class RangeDefense : PlayerAbility
                 {
                     dmg.Damage(pushDamage);
                 }
-                //Aqui tambien se podria hacer daño al enemigo con pushDamage
+                //Aqui tambien se podria hacer daï¿½o al enemigo con pushDamage
                 if (target.gameObject.TryGetComponent(out Rigidbody trb))
                 {
                     Vector3 pushDirection = (target.transform.position - playerPos).normalized;
@@ -58,6 +59,7 @@ public class RangeDefense : PlayerAbility
         //rb.linearVelocity = Vector3.zero;
         while (!IsOnGround(rb.gameObject.transform))
         {
+            Debug.Log("eSRTOY ESPERANDO PISO");
             rb.AddForce(Vector3.down * fallForce, ForceMode.Force);
             yield return new WaitForFixedUpdate();
         }
@@ -71,8 +73,9 @@ public class RangeDefense : PlayerAbility
 
     private bool IsOnGround(Transform player)
     {
-        Vector3 playerFeetPos = new Vector3(player.position.x, (player.position.y - player.lossyScale.y) - 0.1f, player.position.z);
-        if (Physics.Raycast(playerFeetPos, Vector3.down, 0.3f, groundLayer, QueryTriggerInteraction.Ignore))
+        //Vector3 playerFeetPos = new Vector3(player.position.x, (player.position.y - player.lossyScale.y/2), player.position.z);
+        Debug.DrawRay(player.position, Vector3.down * 0.4f, Color.red, 5f);
+        if (Physics.Raycast(player.position, Vector3.down, 0.4f, groundLayer, QueryTriggerInteraction.Ignore))
         {
             return true;
         }

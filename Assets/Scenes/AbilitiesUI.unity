@@ -1286,7 +1286,7 @@ GameObject:
   - component: {fileID: 1509789505}
   - component: {fileID: 1509789504}
   - component: {fileID: 1509789508}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1656,13 +1656,13 @@ MonoBehaviour:
   Orbits:
     Top:
       Radius: 4
-      Height: 3.5
+      Height: 4.5
     Center:
       Radius: 5
       Height: 2.5
     Bottom:
       Radius: 3
-      Height: 1.5
+      Height: 0.5
     SplineCurvature: 0.5
   RecenteringTarget: 2
   HorizontalAxis:
@@ -1730,7 +1730,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animController: {fileID: 1933389966}
   overrideController: {fileID: 22100000, guid: 9cdf8ae5e19f0f142939a54bd526570c, type: 2}
-  originalClip: 
 --- !u!114 &1933389973
 MonoBehaviour:
   m_ObjectHideFlags: 0

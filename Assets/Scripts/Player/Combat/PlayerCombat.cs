@@ -74,19 +74,23 @@ public class PlayerCombat : MonoBehaviour
     
     void ChangeAbilities()
     {
+        attackAbility.Exit(player);
         attackAbility = ChangeAbility(attackAbility, attacks);
         attackAbility.Initialize(player);
         imgAttackIcon.sprite = attackAbility.abilitySprite;
 
+        defenseAbility.Exit(player);
         defenseAbility = ChangeAbility(defenseAbility, defenses);
         defenseAbility.Initialize(player);
         imgDefensiveIcon.sprite = defenseAbility.abilitySprite;
 
+        specialAbility.Exit(player);
         specialAbility = ChangeAbility(specialAbility, specials);
         specialAbility.Initialize(player);
         imgSpecialIcon.sprite = specialAbility.abilitySprite;
         imgSpecialCooldown.sprite = specialAbility.abilitySprite;
 
+        ultimateAbility.Exit(player);
         ultimateAbility = ChangeAbility(ultimateAbility, ultimates);
         ultimateAbility.Initialize(player);
         imgUltimateIcon.sprite = ultimateAbility.abilitySprite;
