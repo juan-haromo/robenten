@@ -10,6 +10,7 @@ public class ProyectileClass : MonoBehaviour
     protected virtual void Awake()
     {
         TryGetComponent(out rb);
+        Destroy(gameObject, 5);
     }
 
     public virtual void ShootInDirection(Vector3 direction)

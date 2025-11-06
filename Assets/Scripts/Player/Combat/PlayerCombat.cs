@@ -75,25 +75,22 @@ public class PlayerCombat : MonoBehaviour
     void ChangeAbilities()
     {
         attackAbility = ChangeAbility(attackAbility, attacks);
+        attackAbility.Initialize(player);
         imgAttackIcon.sprite = attackAbility.abilitySprite;
 
         defenseAbility = ChangeAbility(defenseAbility, defenses);
+        defenseAbility.Initialize(player);
         imgDefensiveIcon.sprite = defenseAbility.abilitySprite;
 
         specialAbility = ChangeAbility(specialAbility, specials);
+        specialAbility.Initialize(player);
         imgSpecialIcon.sprite = specialAbility.abilitySprite;
         imgSpecialCooldown.sprite = specialAbility.abilitySprite;
 
         ultimateAbility = ChangeAbility(ultimateAbility, ultimates);
+        ultimateAbility.Initialize(player);
         imgUltimateIcon.sprite = ultimateAbility.abilitySprite;
         imgUltimateCooldown.sprite = ultimateAbility.abilitySprite;
-        attackAbility.Initialize(player);
-        defenseAbility = ChangeAbility(defenseAbility, defenses);
-        defenseAbility.Initialize(player);
-        specialAbility = ChangeAbility(specialAbility, specials);
-        specialAbility.Initialize(player);
-        ultimateAbility = ChangeAbility(ultimateAbility, ultimates);
-        ultimateAbility.Initialize(player);
 
         nextChangeTime = Time.time + Random.Range(minCooldown, maxCooldown);
     }
