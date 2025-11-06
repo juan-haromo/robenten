@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
     [SerializeField] Transform combatLookAt;
 
-
+    public Transform proyectileSpawnpoint;
     [Header("Speed")]
     
 
@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public float normalAcceleration = 5.0f;
     public float normalMaxMoveSpeed = 5.0f;
 
-    Vector3 viewDirection;
+    public Vector3 viewDirection;
     Vector3 inputDirection;
     bool wasPressingKeys = false;
 
@@ -54,7 +54,9 @@ public class PlayerMovement : MonoBehaviour
         Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0, rb.linearVelocity.z);
         if(flatVel.magnitude > currentMaxMoveSpeed)
         {
-            rb.linearVelocity = flatVel.normalized * currentMaxMoveSpeed;
+            flatVel = flatVel.normalized * currentMaxMoveSpeed;
+            flatVel.y = rb.linearVelocity.y;
+            rb.linearVelocity = flatVel;
         }
     }
 }
