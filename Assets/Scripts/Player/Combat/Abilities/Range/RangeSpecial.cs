@@ -9,6 +9,8 @@ public class RangeSpecial : PlayerAbility
 
     public override void Activate(Player player)
     {
+        if(!PlayerCombat.Instance.IsSpecialCharged){ return; }
+        PlayerCombat.Instance.UseSpecial();
         if (player.canUseAbilities)
             ShootSpecialArrow(player);
     }

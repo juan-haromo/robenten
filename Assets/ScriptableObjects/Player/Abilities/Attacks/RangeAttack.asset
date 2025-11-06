@@ -15,6 +15,7 @@ MonoBehaviour:
   cooldownTime: 0.8
   abilityName: Attack
   clip: {fileID: 7400000, guid: 7b23304d360296f4ebdcb56fd75c0de6, type: 2}
+  abilitySprite: {fileID: -813186833, guid: 8fb65130754c85b469cb11836dd5304e, type: 3}
   proyectilePrefab: {fileID: 3460063283489569077, guid: 3d8e271fcd7e216428d71c9478ce6e10, type: 3}
   attackRange: 60
   worldLayer:

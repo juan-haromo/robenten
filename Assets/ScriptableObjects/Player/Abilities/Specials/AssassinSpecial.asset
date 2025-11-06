@@ -15,4 +15,5 @@ MonoBehaviour:
   cooldownTime: 0
   abilityName: Special
   clip: {fileID: 7400000, guid: 2dc902b6f417f0c45b5e2ed05ddbc717, type: 2}
+  abilitySprite: {fileID: 1589620565, guid: 8fb65130754c85b469cb11836dd5304e, type: 3}
   dashForce: 10

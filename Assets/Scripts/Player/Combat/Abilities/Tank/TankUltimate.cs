@@ -5,6 +5,8 @@ public class TankUltimate : PlayerAbility
 {
     public override void Activate(Player player)
     {
+        if(!PlayerCombat.Instance.IsUltimateCharged){ return; }
+        PlayerCombat.Instance.UseUltimate();
         player.TankUltimateBall.SetActive(true);
 
         CapsuleCollider collider = player.GetComponent<CapsuleCollider>();

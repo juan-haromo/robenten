@@ -5,6 +5,7 @@ public abstract class PlayerAbility : ScriptableObject
     [SerializeField] float cooldownTime;
     public string abilityName;
     [SerializeField] private AnimationClip clip;
+    public Sprite abilitySprite;
 
     public float CooldownTime { get => cooldownTime; }
 
