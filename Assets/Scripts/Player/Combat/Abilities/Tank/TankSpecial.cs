@@ -8,6 +8,8 @@ public class TankSpecial : PlayerAbility
 
     public override void Activate(Player player)
     {
+        if(!PlayerCombat.Instance.IsSpecialCharged){ return; }
+        PlayerCombat.Instance.UseSpecial();
         //get shootpoint
         if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out RaycastHit hit))
         {

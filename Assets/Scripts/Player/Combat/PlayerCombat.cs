@@ -6,6 +6,21 @@ using UnityEngine.UI;
 
 public class PlayerCombat : MonoBehaviour
 {
+
+    public static PlayerCombat Instance;
+
+    void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
+
     [Header("Curren abilities")]
     public PlayerAbility attackAbility;
     public PlayerAbility defenseAbility;
@@ -39,10 +54,11 @@ public class PlayerCombat : MonoBehaviour
 
     void Start()
     {
-        UseSpecial();
-        UseUltimate();
+        specialCharge = 0;
+        ultimateCharge = 0;
+        StartCoroutine(ChargeSpecial());
+        StartCoroutine(ChargeUltimate());
     }
-
     void Update()
     {
         if (nextChangeTime < Time.time)
@@ -80,15 +96,18 @@ public class PlayerCombat : MonoBehaviour
         nextChangeTime -= Mathf.Abs(cooldownSeconds);
     }
 
-    public void UseSpecial()
+    public bool UseSpecial()
     {
+        if(!IsSpecialCharged){ return false; }
         IsSpecialCharged = false;
         specialCharge = 0;
         StartCoroutine(ChargeSpecial());
+        return true;
     }
 
     public IEnumerator ChargeSpecial()
     {
+        IsSpecialCharged = false;
         while (specialCharge < 100)
         {
             specialCharge += specialChargeRate * Time.deltaTime;
@@ -98,15 +117,18 @@ public class PlayerCombat : MonoBehaviour
         IsSpecialCharged = true;
     }
 
-    public void UseUltimate()
+    public bool UseUltimate()
     {
+        if(!IsUltimateCharged){ return false; }
         IsUltimateCharged = false;
         ultimateCharge = 0;
         StartCoroutine(ChargeUltimate());
+        return true;
     }
     
     IEnumerator ChargeUltimate()
     {
+        IsUltimateCharged = false;
         while (ultimateCharge < 100)
         {
             ultimateCharge += ultimateChargeRate * Time.deltaTime;
